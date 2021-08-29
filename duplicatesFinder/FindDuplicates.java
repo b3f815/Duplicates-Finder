@@ -3,7 +3,7 @@ package duplicatesFinder;
 import static duplicatesFinder.globalvars.DirNodeMap;
 import static duplicatesFinder.globalvars.dupeMap;
 import static duplicatesFinder.globalvars.sizeMap;
-
+import static duplicatesFinder.Ignore.ignoreList;
 
 
 import java.io.File;
@@ -16,12 +16,12 @@ public class FindDuplicates{
     
     public static void find(String dir) throws NoSuchAlgorithmException, IOException,NullPointerException{
         //System.out.println(dir);
-        if(dir.startsWith("/Users/home/Pictures")){
-            return;
+        for(String s: ignoreList){  //ignoreList is a list of all directories to avoid while searching.
+            if(dir.startsWith(s)){  //Add folders to avoid by adding them to this list at Ignore.java
+                return;
+            }
         }
-        if(dir.startsWith("/Users/home/Library")){
-            return;
-        }
+        //System.out.println(dir);
         if (Files.exists(Paths.get(dir)) == false){ //check if the directory exists first
             return;
         }

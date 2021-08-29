@@ -16,7 +16,7 @@ public class DuplicateFinder {
         root = TC.createTree(root);      // creates new nodes and builds a tree representing input folder hierarchy  
         String rootDir = "/Users/";       //the root of our File System
         
-         
+        
         FindDuplicates.find(rootDir);  //To search for duplicates.
         
         for(String s : dupeMap.keySet()){    //dupeMap :  a Dictionary to map original folder Directory to their duplicates
